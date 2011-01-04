@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/mniCanvasConnect" android:icon="@drawable/mni_connect"
+		android:title="@string/mniCanvasConnect" />
+	<item android:id="@+id/mniCanvasDisconnect" android:icon="@drawable/mni_disconnect"
+		android:title="@string/mniCanvasDisconnect" />
+	<item android:id="@+id/mniCanvasExit" android:icon="@drawable/mni_exit"
+		android:title="@string/mniCanvasExit" />
+</menu>

@@ -1,0 +1,156 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>jWebSocket-Parent</artifactId>
+		<groupId>org.jwebsocket</groupId>
+		<version>0.10</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.jwebsocket</groupId>
+	<artifactId>jWebSocketServer</artifactId>
+	<name>jWebSocketServer</name>
+	<description>jWebSocket Server Project</description>
+	<packaging>jar</packaging>
+
+	<build>
+		<sourceDirectory>../shared/J2SE/jWebSocketServer</sourceDirectory>
+<!--
+		<resources>
+			<resource>
+				<directory>../shared/J2SE/jWebSocketServer</directory>
+			</resource>
+		</resources>
+-->
+		<plugins>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<executions>
+
+					<!-- create embedded version unpackaged -->
+					<execution>
+						<id>Standard</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<!--<classifier>Embedded</classifier>-->
+							<finalName>jWebSocketServer-${project.version}</finalName>
+							<outputDirectory>../jWebSocketRTE/jWebSocket-${project.version}/libs</outputDirectory>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+									<mainClass>org.jwebsocket.console.JWebSocketServer</mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+					</execution>
+
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<reportOutputDirectory>${project.build.directory}/../../jWebSocketClient/web/javadocs/jWebSocketServer</reportOutputDirectory>
+					<stylesheetfile>${project.build.directory}/../../jWebSocketClient/web/javadocs/stylesheet.css</stylesheetfile>
+				</configuration>
+			</plugin>
+
+			<!-- start create assemblies -->
+			<!--
+				description:
+				http://binkley.blogspot.com/2006/12/making-one-jar-with-maven.html
+			-->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+
+				<executions>
+					<execution>
+						<id>Bundle</id>
+						<configuration>
+							<classifier>Bundle</classifier>
+							<finalName>jWebSocketServer-Bundle</finalName>
+							<outputDirectory>../jWebSocketRTE/jWebSocket-${project.version}/libs</outputDirectory>
+							<archive>
+								<manifest>
+									<mainClass>org.jwebsocket.console.JWebSocketServer</mainClass>
+								</manifest>
+							</archive>
+							<descriptors>
+								<descriptor>src/assembly/one-jar.xml</descriptor>
+							</descriptors>
+						</configuration>
+						<phase>package</phase>
+						<goals>
+							<goal>attached</goal>
+						</goals>
+					</execution>
+				</executions>
+
+			</plugin>
+		 <plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-compiler-plugin</artifactId>
+		  <version>2.0.2</version>
+		  <configuration>
+		   <source>1.6</source>
+		   <target>1.6</target>
+		  </configuration>
+		 </plugin>
+		</plugins>
+	</build>
+
+	<!--  define all the dependencies here -->
+	<dependencies>
+		<dependency>
+			<groupId>org.jboss.netty</groupId>
+			<artifactId>netty</artifactId>
+			<version>3.2.0.BETA1</version>
+			<!-- <version>3.2.1.Final</version> -->
+		</dependency>
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>servlet-api-2.5</artifactId>
+			<version>6.1.14</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.13</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jwebsocket</groupId>
+			<artifactId>jWebSocketCommon</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jwebsocket</groupId>
+			<artifactId>jWebSocketServerAPI</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<!--  define repositories -->
+	<repositories>
+		<repository>
+			<id>repository.jboss.org</id>
+			<url>http://repository.jboss.org/maven2</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+</project>

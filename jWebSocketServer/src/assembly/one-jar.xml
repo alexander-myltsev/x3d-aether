@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<assembly>
+	<!-- this id is appended to filename given in pom.xml -->
+	<id>${project.version}</id>
+	<formats>
+		<format>jar</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory/>
+			<unpack>true</unpack>
+		</dependencySet>
+	</dependencySets>
+</assembly>

@@ -1,0 +1,17 @@
+.project
+*.class
+
+*.png
+*.jpg
+*.swf
+*.ico
+*.exe
+*.class
+*.jar
+*.war
+
+target/
+build/
+
+.classpath
+.settings/

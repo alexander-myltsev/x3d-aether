@@ -1,0 +1,1 @@
+To run the JWebSocket Android Client Demo please install the .apk file onto you Android moile device.

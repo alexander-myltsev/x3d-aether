@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Document : en_us.xml Created on : 20. Juli 2010, 21:06 Author :
+		aschulze Description: Language string resources english usa.
+	-->
+<resources>
+	<string name="mniCanvasConnect">Connect</string>
+	<string name="mniCanvasDisconnect">Disconnect</string>
+	<string name="mniCanvasExit">Exit</string>
+</resources>

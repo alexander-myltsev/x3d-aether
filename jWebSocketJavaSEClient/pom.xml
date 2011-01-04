@@ -1,0 +1,90 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>jWebSocket-Parent</artifactId>
+		<groupId>org.jwebsocket</groupId>
+		<version>0.10</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.jwebsocket</groupId>
+	<artifactId>jWebSocketJavaSEClient</artifactId>
+	<name>jWebSocketJavaSEClient</name>
+	<description>jWebSocket Java Client</description>
+	<packaging>jar</packaging>
+	
+	<scm>
+		<connection>scm:svn:https://jwebsocket.googlecode.com/svn/trunk/jWebSocketJavaSEClient</connection>
+		<developerConnection>scm:svn:https://jwebsocket.googlecode.com/svn/trunk/jWebSocketJavaSEClient</developerConnection>
+	</scm>
+    
+	<build>
+		<sourceDirectory>../shared/J2SE/jWebSocketJavaSEClient</sourceDirectory>
+<!--
+        <resources>
+            <resource>
+                <directory>../shared/J2SE/jWebSocketJavaSEClient</directory>
+            </resource>
+        </resources>
+-->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<outputDirectory>../jWebSocketRTE/jWebSocket-${project.version}/libs</outputDirectory>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<reportOutputDirectory>${project.build.directory}/../../jWebSocketClient/web/javadocs/jWebSocketJavaSEClient</reportOutputDirectory>
+					<stylesheetfile>${project.build.directory}/../../jWebSocketClient/web/javadocs/stylesheet.css</stylesheetfile>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!--  define all the dependencies here -->
+	<dependencies>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.netty</groupId>
+			<artifactId>netty</artifactId>
+			<version>3.2.0.BETA1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jwebsocket</groupId>
+			<artifactId>jWebSocketCommon</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jwebsocket</groupId>
+			<artifactId>jWebSocketClientAPI</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<!--  define repositories -->
+	<repositories>
+	</repositories>
+</project>

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<docroot>
+<class ancestor="-" descr="Implements the basic &amp;quot;jws&amp;quot; name space for the jWebSocket client&#10;including various utility methods.&#10;" fullpath="jws" name="jws">
+<const descr="Base namespace&#10;" fullpath="jws.NS_BASE" name="NS_BASE" type="String" value="org.jWebSocket"/>
+<const descr="Current token id, incremented per token exchange to assign results.&#10;" fullpath="jws.CUR_TOKEN_ID" name="CUR_TOKEN_ID" type="Integer" value="0"/>
+<const descr="Current token id, incremented per token exchange to assign results.&#10;" fullpath="jws.JWS_SERVER_URL" name="JWS_SERVER_URL" type="String" value="ws"/>
+<method descr="Convenience replacement for [tt]document.getElementById()[/tt]. Returns the first HTML element with the given id or [tt]null[/tt] if the element could not be found.&#10;" fullpath="jws.$" name="$">
+<arg descr="id of the HTML element to be returned." field="aId" object="" type="String"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="checks if the browser or one of its plug-ins like flash or chrome do support web sockets to be used by an application.&#10;" fullpath="jws.browserSupportsWebSockets" name="browserSupportsWebSockets">
+<arg descr="none" field="" object="" type=""/>
+<result descr="true if the browser or one of its plug-ins support websockets, otherwise false." field="" object="" type="boolean"/>
+</method>
+<method descr="checks if the browser natively supports web sockets, no plug-ins&#10;are considered. Caution! This is a public field not a function!&#10;" fullpath="jws.browserSupportsNativeWebSockets" name="browserSupportsNativeWebSockets">
+<arg descr="none" field="" object="" type=""/>
+<result descr="true if the browser natively support websockets, otherwise false." field="" object="" type="boolean"/>
+</method>
+<method descr="checks if the browser natively or by JSON lib does support JSON.&#10;" fullpath="jws.browserSupportsJSON" name="browserSupportsJSON">
+<arg descr="none" field="" object="" type=""/>
+<result descr="true if the browser or one of its plug-ins support JSON, otherwise false." field="" object="" type="boolean"/>
+</method>
+<method descr="checks if the browser natively supports JSON, no plug-ins&#10;are considered. Caution! This is a public field not a function!&#10;" fullpath="jws.browserSupportsNativeJSON" name="browserSupportsNativeJSON">
+<arg descr="none" field="" object="" type=""/>
+<result descr="true if the browser natively support websockets, otherwise false." field="" object="" type="boolean"/>
+</method>
+<method descr="checks if the browser is Internet Explorer. This is needed to switch to IE specific event model.&#10;" fullpath="jws.isIE" name="isIE">
+<arg descr="none" field="" object="" type=""/>
+<result descr="true if the browser is IE, otherwise false." field="" object="" type="boolean"/>
+</method>
+</class>
+<class ancestor="-" descr="Implements event abstraction for Internet Explorer.&#10;" fullpath="jws.events" name="events">
+<method descr="Adds a listener (callback) to an event in a cross-browser compatible way.&#10;" fullpath="jws.events.addEventListener" name="addEventListener">
+<arg descr="Source element that fires events." field="aElement" object="" type="Node"/>
+<arg descr="Name of the event as a string." field="aEvent" object="" type="String"/>
+<arg descr="The listener function which is called in case of the event." field="aListener" object="" type="Function"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Returns the element which originally fired the event in a cross-browser compatible way.&#10;" fullpath="jws.events.getTarget" name="getTarget">
+<result descr="Element that originally fired the event." field="" object="" type="Node"/>
+</method>
+</class>
+<class ancestor="-" descr="Implementation of the [tt]jws.jWebSocketBaseClient[/tt] class. This class does not handle exceptions or error, it throws exceptions, which are (have to be) handled by the descendant classes.&#10;" fullpath="jws.jWebSocketBaseClient" name="jWebSocketBaseClient">
+<method descr="Called when the WebSocket connection successfully was established. Can to be overwritten in descendant classes to process [tt]onopen[/tt] event in descendant classes.&#10;" fullpath="jws.jWebSocketBaseClient.processOpened" name="processOpened">
+<arg descr="Pending..." field="aEvent" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Called when a data packet was received. Can to be overwritten in descendant classes to process [tt]onmessage[/tt] event in descendant classes.&#10;" fullpath="jws.jWebSocketBaseClient.processPacket" name="processPacket">
+<arg descr="Pending..." field="aEvent" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Called when the WebSocket connection was closed. Can to be overwritten in descendant classes to process [tt]onclose[/tt] event in descendant classes.&#10;" fullpath="jws.jWebSocketBaseClient.processClosed" name="processClosed">
+<arg descr="Pending..." field="aEvent" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Tries to establish a connection the jWebSocket server.&#10;" fullpath="jws.jWebSocketBaseClient.open" name="open">
+<arg descr="URL to the jWebSocket Server" field="aURL" object="" type="String"/>
+<arg descr="Optional arguments, see below..." field="aOptions" object="" type="Object"/>
+<arg descr="Callback when connection was successfully established." field="OnOpen" object="aOptions" type="function"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Deprecated, kept for upward compatibility only. Do not use anymore!&#10;" fullpath="jws.jWebSocketBaseClient.connect" name="connect">
+<arg descr="Please refer to [tt]open[/tt] method." field="aURL" object="" type="String"/>
+<arg descr="Please refer to [tt]open[/tt] method." field="aOptions" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Sends a given string to the jWebSocket Server. The methods checks if the connection is still up and throws an exception if not.&#10;" fullpath="jws.jWebSocketBaseClient.sendStream" name="sendStream">
+<arg descr="String to be send the jWebSocketServer" field="aData" object="" type="String"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Returns [tt]true[/tt] if the WebSocket connection is up otherwise [tt]false[/tt].&#10;" fullpath="jws.jWebSocketBaseClient.isConnected" name="isConnected">
+<arg descr="none" field="" object="" type=""/>
+<result descr="[tt]true[/tt] if the WebSocket connection is up otherwise [tt]false[/tt]." field="" object="" type="boolean"/>
+</method>
+<method descr="Forces an immediate client side disconnect. The processClosed&#10;method is called if the connection was up otherwise no operation is&#10;performed.&#10;" fullpath="jws.jWebSocketBaseClient.forceClose" name="forceClose">
+<arg descr="none" field="" object="" type=""/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Closes the connection either immediately or with an optional timeout. If the connection is established up an exception s fired.&#10;" fullpath="jws.jWebSocketBaseClient.close" name="close">
+<arg descr="Optional arguments as listed below..." field="aOptions" object="" type="Object"/>
+<arg descr="The close timeout in milliseconds, default [tt]0[/tt]." field="timeout" object="aOptions" type="Number"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Deprecated, kept for upward compatibility only. Do not use anymore! Please refer to the [tt]close[/tt] method.&#10;" fullpath="jws.jWebSocketBaseClient.disconnect" name="disconnect">
+<arg descr="Please refer to the [tt]close[/tt] method." field="aOptions" object="" type="Object"/>
+<result descr="Please refer to the [tt]close[/tt] method." field="" object="" type=""/>
+</method>
+</class>
+<class ancestor="jws.jWebSocketBaseClient" descr="Implementation of the [tt]jWebSocketTokenClient[/tt] class. This is an abstract class as an ancestor for the JSON-, CSV- and XML client. Do not create direct instances of jWebSocketTokenClient.&#10;" fullpath="jws.jWebSocketTokenClient" name="jWebSocketTokenClient">
+<method descr="This method is called by the contructor of this class to init the instance.&#10;" fullpath="jws.jWebSocketTokenClient.create" name="create">
+<arg descr="none" field="" object="" type=""/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Returns the unique id of this client assigned by the jWebSocket server.&#10;" fullpath="jws.jWebSocketTokenClient.getId" name="getId">
+<arg descr="none" field="" object="" type=""/>
+<result descr="Unique id of this client." field="" object="" type="String"/>
+</method>
+<method descr="Processes an incoming result token and assigns it to a previous request. If a request was found it calls it OnResponse method and removes the reference of the list of pending results.&#10;This method is used internally only and should not be called by the application.&#10;" fullpath="jws.jWebSocketTokenClient.checkCallbacks" name="checkCallbacks">
+<arg descr="The incoming result token." field="aToken" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Creates a response token with [tt]code = 0[/tt] and [tt]msg = &amp;quot;Ok&amp;quot;[/tt]. It automatically increases the TOKEN_ID to obtain a unique serial id for the next request.&#10;" fullpath="jws.jWebSocketTokenClient.createDefaultResult" name="createDefaultResult">
+<arg descr="none" field="" object="" type=""/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Checks if the client is connected and if so returns a default response token (please refer to [tt]createDefaultResult[/tt] method. If the client is not connected an error token is returned with [tt]code = -1[/tt] and [tt]msg = &amp;quot;Not connected&amp;quot;[/tt]. This is a convenience method if a function needs to check if the client is connected and return an error token if not.&#10;" fullpath="jws.jWebSocketTokenClient.checkConnected" name="checkConnected">
+<arg descr="none" field="" object="" type=""/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Checks if the client is connected and logged in and if so returns a default response token (please refer to [tt]createDefaultResult[/tt] method. If the client is not connected or nott logged in an error token is returned with [tt]code = -1[/tt] and [tt]msg = &amp;quot;Not logged in&amp;quot;[/tt]. This is a convenience method if a function needs to check if the client is connected and return an error token if not.&#10;" fullpath="jws.jWebSocketTokenClient.checkLoggedIn" name="checkLoggedIn">
+<arg descr="none" field="" object="" type=""/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Converts a result token to a readable string e.g. to be displayed in the GUI.&#10;" fullpath="jws.jWebSocketTokenClient.resultToString" name="resultToString">
+<arg descr="The result token to be converted into a string." field="aResToken" object="" type="Object"/>
+<result descr="The human readable string output of the result token." field="" object="" type="String"/>
+</method>
+<method descr="Converts a token into a string (stream). This method needs to be overwritten by the descendant classes to implement a certain sub protocol like JSON, CSV or XML. If you call this method directly an exception is raised.&#10;" fullpath="jws.jWebSocketTokenClient.tokenToStream" name="tokenToStream">
+<arg descr="Token to be converted into a stream." field="aToken" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Converts a string (stream) into a token. This method needs to be overwritten by the descendant classes to implement a certain sub protocol like JSON, CSV or XML. If you call this method directly an exception is raised.&#10;" fullpath="jws.jWebSocketTokenClient.streamToToken" name="streamToToken">
+<arg descr="Stream to be converted into a token." field="aStream" object="" type="String"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Iterates through the client side plug-in chain and calls the [tt]processOpened[/tt] method of each plug-in after the client successfully established the connection to the server.&#10;By this mechanism all plug-ins easily can handle a new connection.&#10;" fullpath="jws.jWebSocketTokenClient.notifyPlugInsOpened" name="notifyPlugInsOpened">
+<arg descr="none" field="" object="" type=""/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Iterates through the client side plug-in chain and calls the [tt]processClosed[/tt] method of each plug-in after the client successfully established the connection to the server.&#10;By this mechanism all plug-ins easily can handle a terminated connection.&#10;" fullpath="jws.jWebSocketTokenClient.notifyPlugInsClosed" name="notifyPlugInsClosed">
+<arg descr="none" field="" object="" type=""/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Is called when a new raw data packet is received by the client. This methods calls the [tt]streamToToken[/tt] method of the its descendant who is responsible to implement the sub protocol JSON, CSV or XML, here to parse the raw packet in the corresponding format.&#10;" fullpath="jws.jWebSocketTokenClient.processPacket" name="processPacket">
+<arg descr="Event object from the browser&amp;apos;s WebSocket instance." field="aEvent" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Processes an incoming token. The method iterates through all plug-ins and calls their specific [tt]processToken[/tt] method.&#10;" fullpath="jws.jWebSocketTokenClient.processToken" name="processToken">
+<arg descr="Token to be processed by the plug-ins in the plug-in chain." field="aToken" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Iterates through all plug-ins of the plugin-chain and calls their specific [tt]processClosed[/tt] method.&#10;" fullpath="jws.jWebSocketTokenClient.processClosed" name="processClosed">
+<arg descr="..." field="aEvent" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Called when the client successfully received a connect event token which means that another client has connected to the network.&#10;" fullpath="jws.jWebSocketTokenClient.processConnected" name="processConnected">
+<arg descr="..." field="aToken" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Called when the client successfully received a disconnect event token which means that another client has disconnected from the network.&#10;" fullpath="jws.jWebSocketTokenClient.processDisconnected" name="processDisconnected">
+<arg descr="..." field="aToken" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Sends a token to the jWebSocket server.&#10;" fullpath="jws.jWebSocketTokenClient.sendToken" name="sendToken">
+<arg descr="Token to be send to the jWebSocket server." field="aToken" object="" type="Object"/>
+<arg descr="Optional arguments as listed below..." field="aOptions" object="" type="Object"/>
+<arg descr="Reference to callback function, which is called when the response is received." field="OnResponse" object="aOptions" type="Function"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Sends a simple text message to a certain target client within the WebSocket network by creating and sending a [tt]send[/tt] token. The receiver must be addressed by its client id.&#10;This method requires the user to be authenticated.&#10;" fullpath="jws.jWebSocketTokenClient.sendText" name="sendText">
+<arg descr="Client id of the target client for the message." field="aTarget" object="" type="String"/>
+<arg descr="Textmessage to be send to the target client." field="aText" object="" type="String"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Broadcasts a simple text message to all clients or a limited set of clients within the WebSocket network by creating and sending a [tt]broadcast[/tt] token. The caller can decide to wether or not included in the broadcast and if he requests a response (optional &amp;quot;one-way&amp;quot; token).&#10;This method requires the user to be authenticated.&#10;" fullpath="jws.jWebSocketTokenClient.broadcastText" name="broadcastText">
+<arg descr="..." field="aPool" object="" type="String"/>
+<arg descr="..." field="aText" object="" type="type"/>
+<arg descr="..." field="aOptions" object="" type="Object"/>
+<arg descr="..., default [tt]false[/tt]." field="senderIncluded" object="aOptions" type="Boolean"/>
+<arg descr="..., default [tt]true[/tt]." field="responseRequested" object="aOptions" type="Boolean"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Sends an echo token to the jWebSocket server. The server returns&#10;the same message with a prefix.&#10;" fullpath="jws.jWebSocketTokenClient.echo" name="echo">
+<arg descr="An arbitrary string to be returned by the server." field="aData" object="" type="String"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Tries to establish a connection to the jWebSocket server. Unlike the inherited [tt]open[/tt] method no exceptions is fired in case of an error but a response token is returned.&#10;" fullpath="jws.jWebSocketTokenClient.open" name="open">
+<arg descr="URL to the jWebSocket server." field="aURL" object="" type="String"/>
+<arg descr="Optional arguments, for details please refer to the open method of the [tt]jWebSocketBaseClient[/tt] class." field="aOptions" object="" type="Object"/>
+<result descr="The response token." field="" object="" type="Object"/>
+<result descr="Response code (0 = ok, otherwise error)." field="code" object="Object" type="Number"/>
+<result descr="&amp;quot;Ok&amp;quot; or error message." field="msg" object="Object" type="String"/>
+</method>
+<method descr="Deprecated, kept for upward compatibility only. Do not use anymore!&#10;Please refer to the [tt]open[/tt] method.&#10;" fullpath="jws.jWebSocketTokenClient.connect" name="connect">
+<arg descr="Please refer to the [tt]open[/tt] method." field="" object="" type="Deprecated"/>
+<result descr="Please refer to the [tt]open[/tt] method." field="" object="" type="Deprecated"/>
+</method>
+<method descr="Closes an established WebSocket connection.&#10;" fullpath="jws.jWebSocketTokenClient.close" name="close">
+<arg descr="Optional arguments as listed below..." field="aOptions" object="" type="Object"/>
+<arg descr="Timeout in milliseconds." field="timeout" object="aOptions" type="Number"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Deprecated, kept for upward compatibility only. Do not use anymore!&#10;Please refer to the [tt]close[/tt] method.&#10;" fullpath="jws.jWebSocketTokenClient.disconnect" name="disconnect">
+<arg descr="Please refer to the [tt]close[/tt] method." field="" object="" type="Deprecated"/>
+<result descr="Please refer to the [tt]close[/tt] method." field="" object="" type="Deprecated"/>
+</method>
+</class>
+<class ancestor="-" descr="Implementation of the [tt]jws.SystemClientPlugIn[/tt] class.&#10;" fullpath="jws.SystemClientPlugIn" name="SystemClientPlugIn">
+<const descr="Namespace for SystemClientPlugIn&#10;" fullpath="jws.SystemClientPlugIn.NS" name="NS" type="String" value="org.jWebSocket.plugins.system (jws.NS_BASE + &quot;.plugins.system&quot;)"/>
+<const descr="For [tt]getClients[/tt] method&#10;: Returns all currently connected clients irrespective of their authentication state." fullpath="jws.SystemClientPlugIn.ALL_CLIENTS" name="ALL_CLIENTS" type="Number" value="0"/>
+<const descr="For [tt]getClients[/tt] method&#10;: Returns all authenticated clients only." fullpath="jws.SystemClientPlugIn.AUTHENTICATED" name="AUTHENTICATED" type="Number" value="1"/>
+<const descr="For [tt]getClients[/tt] method&#10;: Returns all non-authenticated clients only." fullpath="jws.SystemClientPlugIn.NON_AUTHENTICATED" name="NON_AUTHENTICATED" type="Number" value="2"/>
+<method descr="Tries to authenticate the client against the jWebSocket Server by sending a [tt]login[/tt] token.&#10;" fullpath="jws.SystemClientPlugIn.login" name="login">
+<arg descr="The login name of the user." field="aUsername" object="" type="String"/>
+<arg descr="The password of the user." field="aPassword" object="" type="String"/>
+<arg descr="Optional arguments as listed below..." field="aOptions" object="" type="Object"/>
+<arg descr="Default pool the user want to register at (default [tt]null[/tt], no pool)." field="pool" object="aOptions" type="String"/>
+<arg descr="not yet supported (defautl [tt]true[/tt])." field="autoConnect" object="aOptions" type="Boolean"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Tries to connect and authenticate the client against the jWebSocket Server in a single call. If the client is already connected this connection is used and not re-established. If the client is already authenticated he is logged off first and re-logged in afterwards by sending a [tt]login[/tt] token.&#10;The logoff of the client in case of a re-login is automatically processed by the jWebSocket server and does not need to be explicitely triggered by the client.&#10;" fullpath="jws.SystemClientPlugIn.logon" name="logon">
+<arg descr="The URL of the jWebSocket Server." field="aURL" object="" type="String"/>
+<arg descr="The login name of the user." field="aUsername" object="" type="String"/>
+<arg descr="The password of the user." field="aPassword" object="" type="String"/>
+<arg descr="Optional arguments as listed below..." field="aOptions" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Logs the currently authenticated used out. After that the user is not authenticated anymore against the jWebSocket network. The client is not automatically disconnected.&#10;If you want to logout and disconnect please refere to the [tt]close[/tt] method. Closing a connection automatically logs off a potentially authenticated user.&#10;" fullpath="jws.SystemClientPlugIn.logout" name="logout">
+<arg descr="none" field="" object="" type=""/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Returns [tt]true[/tt] when the client is authenticated, otherwise [tt]false[/tt].&#10;" fullpath="jws.SystemClientPlugIn.isLoggedIn" name="isLoggedIn">
+<arg descr="none" field="" object="" type=""/>
+<result descr="[tt]true[/tt] when the client is authenticated, otherwise [tt]false[/tt]." field="" object="" type="Boolean"/>
+</method>
+<method descr="Returns the login name when the client is authenticated, otherwise [tt]null[/tt].&#10;description pending...&#10;" fullpath="jws.SystemClientPlugIn.getUsername" name="getUsername">
+<arg descr="none" field="" object="" type=""/>
+<result descr="Login name when the client is authenticated, otherwise [tt]null[/tt]." field="" object="" type="String"/>
+</method>
+<method descr="Returns an array of clients that are currently connected to the&#10;jWebSocket network by using the [tt]getClients[/tt] token.&#10;Notice that the call is non-blocking, i.e. the clients are returned asynchronously by the OnResponse event.&#10;" fullpath="jws.SystemClientPlugIn.getClients" name="getClients">
+<arg descr="Optional arguments as listed below..." field="aOptions" object="" type="Object"/>
+<arg descr="Only consider connections to that certain pool (default=[tt]null[/tt])." field="pool" object="aOptions" type="String"/>
+<arg descr="One of the following constants [tt]AUTHENTICATED[/tt], [tt]NON_AUTHENTICATED[/tt], [tt]ALL_CLIENTS[/tt]." field="mode" object="aOptions" type="Number"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Requests an array of all clients that are currently connected to the jWebSocket network but not authenticated.&#10;Notice that the call is non-blocking, i.e. the clients are returned asynchronously by the OnResponse event.&#10;" fullpath="jws.SystemClientPlugIn.getNonAuthClients" name="getNonAuthClients">
+<arg descr="Please refer to the [tt]getClients[/tt] method." field="aOptions" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Requests an array of all clients that are currently connected to the jWebSocket network and that are authenticated.&#10;Notice that the call is non-blocking, i.e. the clients are returned asynchronously by the OnResponse event.&#10;" fullpath="jws.SystemClientPlugIn.getAuthClients" name="getAuthClients">
+<arg descr="Please refer to the [tt]getClients[/tt] method." field="aOptions" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Requests an array of all clients that are currently connected to the jWebSocket network irrespective of their authentication status.&#10;Notice that the call is non-blocking, i.e. the clients are returned asynchronously by the OnResponse event.&#10;" fullpath="jws.SystemClientPlugIn.getAllClients" name="getAllClients">
+<arg descr="Please refer to the [tt]getClients[/tt] method." field="aOptions" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Sends a simple [tt]ping[/tt] token to the jWebSocket Server as a notification that the client is still alive. The client optionally can request an echo so that the client also get a notification that the server still is alive. The [tt]ping[/tt] thus is an important part of the jWebSocket connection management.&#10;" fullpath="jws.SystemClientPlugIn.ping" name="ping">
+<arg descr="Optional arguments as listed below..." field="aOptions" object="" type="Object"/>
+<arg descr="Specifies whether the client expects a response from the server (default=[tt]true[/tt])." field="echo" object="aOptions" type="Boolean"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Starts the keep-alive timer in background. keep-alive sends periodic pings to the server with an configurable interval.&#10;If the keep-alive timer has already has been started, the previous one will be stopped automatically and a new one with new options will be initiated.&#10;" fullpath="jws.SystemClientPlugIn.startKeepAlive" name="startKeepAlive">
+<arg descr="Optional arguments as listed below..." field="aOptions" object="" type="Objects"/>
+<arg descr="Number of milliseconds for the interval." field="interval" object="aOptions" type="Number"/>
+<arg descr="Specifies wether the server is supposed to send an answer to the client." field="echo" object="aOptions" type="Boolean"/>
+<arg descr="Specifies wether to send the first ping immediately or after the first interval." field="immediate" object="aOptions" type="Boolean"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Stops the keep-alive timer in background. If no keep-alive is running no operation is performed.&#10;" fullpath="jws.SystemClientPlugIn.stopKeepAlive" name="stopKeepAlive">
+<arg descr="none" field="" object="" type=""/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+</class>
+<class ancestor="-" descr="Implementation of the [tt]jws.StreamingPlugIn[/tt] class. This plug-in provides the methods to register and unregister at certain stream sn the server.&#10;" fullpath="jws.StreamingPlugIn" name="StreamingPlugIn">
+<const descr="Namespace for the [tt]StreamingPlugIn[/tt] class.&#10;" fullpath="jws.StreamingPlugIn.NS" name="NS" type="String" value="org.jWebSocket.plugins.streaming (jws.NS_BASE + &quot;.plugins.streaming&quot;)"/>
+<method descr="Registers the client at the given stream on the server. After this operation the client obtains all messages in this stream. Basically a client can register at multiple streams.&#10;If no stream with the given ID exists on the server an error token is returned. Depending on the type of the stream it may take more or less time until you get the first token from the stream.&#10;" fullpath="jws.StreamingPlugIn.registerStream" name="registerStream">
+<arg descr="The id of the server side data stream." field="aStream" object="" type="String"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Unregisters the client from the given stream on the server.&#10;" fullpath="jws.StreamingPlugIn.unregisterStream" name="unregisterStream">
+<arg descr="The id of the server side data stream." field="aStream" object="" type="String"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+</class>
+<class ancestor="-" descr="The RRPCServer server provides the methods which are granted to be called by the server and thus from the &amp;quot;outside&amp;quot;. This class is used by the [tt]jws.RPCClientPlugIn[/tt] class.&#10;" fullpath="jws.RRPCServer" name="RRPCServer">
+<method descr="description pending...&#10;" fullpath="jws.RRPCServer.demo" name="demo">
+<arg descr="Array of arguments to the remote procedure." field="aArgs" object="" type="Array"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+</class>
+<class ancestor="-" descr="Implementation of the [tt]jws.RPCClientPlugIn[/tt] class.&#10;" fullpath="jws.RPCClientPlugIn" name="RPCClientPlugIn">
+<const descr="Namespace for the [tt]RPCClientPlugIn[/tt] class.&#10;" fullpath="jws.RPCClientPlugIn.NS" name="NS" type="String" value="org.jWebSocket.plugins.rpc (jws.NS_BASE + &quot;.plugins.rpc&quot;)"/>
+<method descr="Processes an incoming token from the server or a remote client. Here the token is checked for type [tt]rrpc[/tt]. If such is detected it gets processed by the [tt]onRRPC[/tt] method of this class.&#10;" fullpath="jws.RPCClientPlugIn.processToken" name="processToken">
+<arg descr="Token received from the server or a remote client." field="aToken" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Runs a remote procedure call (RPC) on the jWebSocket server. The security mechanisms on the server require the call to be granted, otherwise it gets rejected.&#10;" fullpath="jws.RPCClientPlugIn.rpc" name="rpc">
+<arg descr="Class of the method that is supposed to be called." field="aClass" object="" type="String"/>
+<arg descr="Name of the method that is supposed to be called." field="aMthd" object="" type="String"/>
+<arg descr="Arguments for method that is supposed to be called." field="aArgs" object="" type="Array"/>
+<arg descr="Optional arguments. For details please refer to the [tt]sendToken[/tt] method." field="aOptions" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Runs a reverse remote procedure call (RRPC) on another client.&#10;" fullpath="jws.RPCClientPlugIn.rrpc" name="rrpc">
+<arg descr="Id of the target remote client." field="aTarget" object="" type="String"/>
+<arg descr="Class of the method that is supposed to be called." field="aClass" object="" type="String"/>
+<arg descr="Name of the method that is supposed to be called." field="aMthd" object="" type="String"/>
+<arg descr="Arguments for method that is supposed to be called." field="aArgs" object="" type="Array"/>
+<arg descr="Optional arguments. For details please refer to the [tt]sendToken[/tt] method." field="aOptions" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+<method descr="Processes a remote procedure call from another client. This method is called internally only and should not be invoked by the application.&#10;" fullpath="jws.RPCClientPlugIn.onRRPC" name="onRRPC">
+<arg descr="Token that contains the rrpc arguments from the source client." field="aToken" object="" type="Object"/>
+<result descr="none" field="" object="" type="void"/>
+</method>
+</class>
+<class ancestor="jws.jWebSocketTokenClient" descr="Implementation of the [tt]jws.jWebSocketJSONClient[/tt] class.&#10;" fullpath="jws.jWebSocketJSONClient" name="jWebSocketJSONClient">
+<method descr="converts a token to a JSON stream. If the browser provides a native JSON class this is used, otherwise it use the automatically embedded JSON library from json.org.&#10;" fullpath="jws.jWebSocketJSONClient.tokenToStream" name="tokenToStream">
+<arg descr="The token (an JavaScript Object) to be converted into an JSON stream." field="aToken" object="" type="Token"/>
+<result descr="The resulting JSON stream." field="" object="" type="String"/>
+</method>
+<method descr="converts a JSON stream into a token. If the browser provides a native JSON class this is used, otherwise it use the automatically embedded JSON library from json.org. For security reasons the use of JavaScript&amp;apos;s eval explicitely was avoided.&#10;" fullpath="jws.jWebSocketJSONClient.streamToToken" name="streamToToken">
+<arg descr="The data stream received from the server to be parsed as JSON." field="aStream" object="" type="String"/>
+<result descr="The Token object of stream could be parsed successfully." field="Token" object="" type="Object"/>
+<result descr="Fields of the token depend on its content and purpose and need to be interpreted by the higher level software tiers." field="[i]field[/i]" object="Token" type="[i]type[/i]"/>
+</method>
+</class>
+<class ancestor="jws.jWebSocketTokenClient" descr="Implementation of the [tt]jws.jWebSocketCSVClient[/tt] class.&#10;" fullpath="jws.jWebSocketCSVClient" name="jWebSocketCSVClient">
+<method descr="converts a token to a CSV stream.&#10;" fullpath="jws.jWebSocketCSVClient.tokenToStream" name="tokenToStream">
+<arg descr="The token (an JavaScript Object) to be converted into an CSV stream." field="aToken" object="" type="Token"/>
+<result descr="The resulting CSV stream." field="" object="" type="String"/>
+</method>
+<method descr="converts a CSV stream into a token.&#10;" fullpath="jws.jWebSocketCSVClient.streamToToken" name="streamToToken">
+<arg descr="The data stream received from the server to be parsed as CSV." field="aStream" object="" type="String"/>
+<result descr="The Token object of stream could be parsed successfully." field="Token" object="" type="Object"/>
+<result descr="Fields of the token depend on its content and purpose and need to be interpreted by the higher level software tiers." field="[i]field[/i]" object="Token" type="[i]type[/i]"/>
+</method>
+</class>
+<class ancestor="jws.jWebSocketTokenClient" descr="Implementation of the [tt]jws.jWebSocketXMLClient[/tt] class.&#10;" fullpath="jws.jWebSocketXMLClient" name="jWebSocketXMLClient">
+<method descr="converts a token to a XML stream.&#10;" fullpath="jws.jWebSocketXMLClient.tokenToStream" name="tokenToStream">
+<arg descr="The token (an JavaScript Object) to be converted into an XML stream." field="aToken" object="" type="Token"/>
+<result descr="The resulting XML stream." field="" object="" type="String"/>
+</method>
+<method descr="converts a XML stream into a token.&#10;" fullpath="jws.jWebSocketXMLClient.streamToToken" name="streamToToken">
+<arg descr="The data stream received from the server to be parsed as XML." field="aStream" object="" type="String"/>
+<result descr="The Token object of stream could be parsed successfully." field="Token" object="" type="Object"/>
+<result descr="Fields of the token depend on its content and purpose and need to be interpreted by the higher level software tiers." field="[i]field[/i]" object="Token" type="[i]type[/i]"/>
+</method>
+</class>
+</docroot>

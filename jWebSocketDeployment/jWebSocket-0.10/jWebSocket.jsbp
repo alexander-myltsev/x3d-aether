@@ -1,0 +1,393 @@
+﻿..\..\jWebSocketClient\web\res\css\jwebsocket.css|CSS Files|*.css|0||||1016320||*||no|..\..\jWebSocketClient\web\res\css\jwebsocket_min.css|
+..\..\jWebSocketClient\web\res\js\jwebsocket.js|JavaScript Files|*.js|0||||7681||*||no|..\..\jWebSocketClient\web\res\js\jwebsocket_min.js|
+
+
+0, $, , 1
+0, __swfLocation, , 1
+1, aAncestor, ab, 0
+1, aArgs, am, 0
+1, aClass, K, 0
+1, aClassname, aU, 0
+1, aData, aw, 0
+0, addPlugIn, , 1
+1, aElement, as, 0
+1, aEvent, r, 0
+1, aFields, aM, 0
+1, aId, aT, 0
+1, aKey, ae, 0
+1, aListener, aA, 0
+0, ALL_CLIENTS, , 1
+1, aMthd, ay, 0
+1, aNamespace, aI, 0
+1, aNode, aV, 0
+1, aObj, T, 0
+1, aOptions, d, 0
+1, aPassword, aq, 0
+1, aPlugIn, ap, 0
+1, aPool, aP, 0
+0, aResToken, , 1
+1, args, A, 0
+1, aStream, H, 0
+1, aTarget, bb, 0
+1, aText, aB, 0
+1, aToken, aR, 0
+1, aURL, L, 0
+1, aUsername, an, 0
+0, AUTHENTICATED, , 1
+0, autoConnect, , 1
+1, aValue, P, 0
+0, broadcastText, , 1
+0, broadcastToken, , 1
+0, browserSupportsJSON, , 1
+0, browserSupportsNativeJSON, , 1
+0, browserSupportsNativeWebSockets, , 1
+0, browserSupportsWebSockets, , 1
+0, callback, , 1
+0, checkCallbacks, , 1
+0, checkConnected, , 1
+0, checkLoggedIn, , 1
+0, classname, , 1
+0, CLOSED, , 1
+0, CLOSING, , 1
+0, connect, , 3, 1-38-1-0-2
+0, CONNECTING, , 1
+0, create, , 1
+0, createDefaultResult, , 1
+0, CUR_TOKEN_ID, , 1
+0, declareClass, , 1
+0, demo, , 3, 1-76-16-0-2
+0, descendants, , 1
+0, diagram, , 1
+0, disconnect, , 3, 1-39-1-0-2
+0, divider, , 1
+0, echo, , 3, 1-43-1-0-2
+0, emphasized, , 1
+0, events, , 1
+1, fClientId, ai, 0
+1, fConn, D, 0
+0, forceClose, , 1
+1, fPlugIns, U, 0
+1, fRequestCallbacks, ao, 0
+1, fSessionId, ac, 0
+1, fUsername, af, 0
+0, getAllClients, , 1
+0, getAuthClients, , 1
+0, getClients, , 3, 1-59-1-0-2
+0, getId, , 1
+0, getLastTokenId, , 1
+0, getNextTokenId, , 1
+0, getNonAuthClients, , 1
+0, getTarget, , 1
+0, getUsername, , 1
+0, grantedProcs, , 1
+0, hasFlashPlayerVersion, , 1
+1, hDisconnectTimeout, az, 0
+1, hKeepAlive, ar, 0
+0, imageFooter, , 1
+0, immediate, , 1
+0, inherited, , 1
+0, inpBtnEm, , 1
+0, instruction, , 1
+0, instructions, , 1
+0, interval, , 1
+0, isConnected, , 1
+0, isIE, , 1
+0, isLoggedIn, , 1
+0, JSON, , 1
+0, jWebSocketBaseClient, , 3, 1-15-1-0-2
+0, jWebSocketTokenClient, , 3, 1-21-1-0-2
+0, jws, , 3, 1-14-1-0-2, 1-20-1-0-2, 1-24-1-0-2, 1-25-1-0-2, 1-27-1-0-2, 1-44-1-0-2, 1-49-1-0-2, 1-53-1-0-2, 1-56-1-0-2, 1-60-1-0-2, 1-63-1-0-2, 1-67-1-0-2, 1-70-1-0-2, 1-76-1-0-2, 1-79-1-0-2, 1-82-1-0-2, 1-90-1-0-2, 1-92-1-0-2, 1-113-1-0-2
+0, JWS_FLASHBRIDGE, , 1
+0, JWS_SERVER_URL, , 1
+1, lAncMthd, au, 0
+1, lAppOnOpenClBk, aJ, 0
+1, lArgs, be, 0
+1, lAutoConnect, aK, 0
+1, lClassname, bd, 0
+1, lClbkRec, aH, 0
+1, lCnt, V, 0
+1, lConstructor, R, 0
+1, lCSV, ag, 0
+1, lDoc, aC, 0
+1, lEcho, ah, 0
+1, lEncoding, aX, 0
+1, lEvalStr, aW, 0
+1, lField, bc, 0
+1, lIdx, g, 0
+1, lImmediate, aL, 0
+0, linkDescription, , 1
+1, lInterval, aO, 0
+1, lIsIE, aY, 0
+1, lItems, aN, 0
+1, lJSON, ak, 0
+1, lKey, G, 0
+1, lKeyVal, at, 0
+1, lLen, M, 0
+1, lMethod, aZ, 0
+1, lMode, aF, 0
+1, lNode, O, 0
+1, lNS, aG, 0
+1, lObj, bk, 0
+0, localeKey, , 1
+0, login, , 3, 1-35-1-0-2, 1-52-1-0-2
+0, logon, , 1
+0, logout, , 3, 1-36-1-0-2, 1-55-1-0-2
+1, lOnResponse, ax, 0
+1, lParser, ba, 0
+1, lPath, ad, 0
+1, lPlugIn, I, 0
+1, lPlugIns, C, 0
+1, lPool, al, 0
+1, lPos, bg, 0
+1, lRes, bj, 0, 1-87-1-1-0
+1, lResponseRequested, aD, 0
+1, lResXML, av, 0
+1, lScript, bi, 0
+1, lScripts, bf, 0
+1, lSenderIncluded, aE, 0
+0, lSpawnThread, , 1
+1, lStream, aQ, 0
+1, lThis, B, 0
+1, lTimeout, aj, 0
+1, lToken, J, 0
+1, lType, aa, 0
+1, lUserAgent, aS, 0
+1, lVal, o, 0
+1, lValue, F, 0
+1, lXML, Q, 0
+0, menuDisabled, , 1
+0, menulink, , 1
+0, msg, , 1
+0, MSG_WS_NOT_SUPPORTED, , 1
+0, newsHeader, , 1
+0, node2obj, , 1
+0, noIndent, , 1
+0, NON_AUTHENTICATED, , 1
+0, notifyPlugInsClosed, , 1
+0, notifyPlugInsOpened, , 1
+0, ns, , 1
+0, NS, , 1
+0, NS_BASE, , 1
+0, obj2xml, , 1
+0, OnClose, , 1
+0, onmessage, , 1
+0, OnMessage, , 1
+0, onopen, , 1
+0, OnOpen, , 1
+0, OnResponse, , 1
+0, onRRPC, , 1
+0, oop, , 1
+0, OPEN, , 1
+0, password, , 1
+0, ping, , 3, 1-62-1-0-2
+0, pool, , 1
+0, processClosed, , 1
+0, processConnected, , 1
+0, processDisconnected, , 1
+0, processOpened, , 1
+0, processPacket, , 1
+0, processToken, , 1
+0, registerStream, , 1
+0, reqType, , 1
+0, request, , 1
+0, responseRequested, , 1
+0, resultToString, , 1
+0, rpc, , 3, 1-75-10-0-2, 1-78-1-0-2
+0, RPCClientPlugIn, , 1
+0, rrpc, , 3, 1-77-1-0-2, 1-81-1-0-2, 1-89-1-0-2
+0, RRPCServer, , 3, 1-76-5-0-2
+0, sancBtnTop, , 1
+0, sbtnDlg, , 1
+0, screenshot, , 1
+0, screenshotMinus, , 1
+0, screenshotOff, , 1
+0, screenshotOn, , 1
+0, screenshotPlus, , 1
+0, sdivContainer, , 1
+0, sender, , 1
+0, senderIncluded, , 1
+0, sendStream, , 1
+0, sendText, , 1
+0, sendToken, , 1
+0, sourceId, , 1
+0, spawnThread, , 1
+0, spwfDlg, , 1
+0, sselDlg, , 1
+0, startKeepAlive, , 1
+0, stblData, , 1
+0, stdData, , 1
+0, stdDlg, , 1
+0, sthData, , 1
+0, sthDlg, , 1
+0, stlbDlg, , 1
+0, stopKeepAlive, , 1
+0, strData, , 1
+0, strDlg, , 1
+0, stream, , 1
+0, StreamingPlugIn, , 1
+0, streamToToken, , 3, 1-30-1-0-2
+0, stringify, , 1
+0, stxaDlg, , 1
+0, stxfDlg, , 1
+0, superClass, , 1
+0, swfobject, , 1
+0, SystemClientPlugIn, , 1
+0, targetId, , 1
+0, tid, , 1
+0, timeout, , 1
+0, tokenToStream, , 3, 1-29-1-0-2
+0, unregisterStream, , 1
+0, username, , 1
+0, usid, , 3, 1-95-2-0-2
+0, utid, , 3, 1-22-1-0-2, 1-40-1-0-2, 1-94-1-0-2
+0, WebSocket, , 1
+
+
+1, , 16,"org.jWebSocket"
+1, , 71,"Unfortunately your browser does neither natively support WebSockets n"
+1, , 51,"nor you have the Adobe Flash-PlugIn 9+ installed."
+1, , 7,"ws://"
+1, , 11,"localhost"
+1, , 7,":8787"
+1, , 6,"MSIE"
+1, , 4,"on"
+1, , 7,"9.0.0"
+1, , 8,"script"
+1, , 5,"src"
+1, , 12,"jWebSocket"
+1, , 32,"flash-bridge/WebSocketMain.swf"
+1, , 10,"function"
+1, , 5,"jws"
+1, , 22,"jWebSocketBaseClient"
+1, , 19,"Already connected"
+1, , 37,"WebSockets not supported by browser"
+1, , 15,"Not connected"
+1, , 15,"Not connected"
+1, , 5,"jws"
+1, , 23,"jWebSocketTokenClient"
+1, , 6,"utid"
+1, , 4,"Ok"
+1, , 16,"jws.jsc.res.Ok"
+1, , 26,"jws.jsc.res.notConnected"
+1, , 16,"Not connected."
+1, , 25,"jws.jsc.res.notLoggedIn"
+1, , 16,"Not logged in."
+1, , 61,"tokenToStream needs to be overwritten in descendant classes"
+1, , 61,"streamToToken needs to be overwritten in descendant classes"
+1, , 9,"welcome"
+1, , 9,"goodBye"
+1, , 7,"close"
+1, , 10,"response"
+1, , 7,"login"
+1, , 8,"logout"
+1, , 7,"event"
+1, , 9,"connect"
+1, , 12,"disconnect"
+1, , 6,"utid"
+1, , 6,"send"
+1, , 11,"broadcast"
+1, , 6,"echo"
+1, , 12,"jws.jsc.ex"
+1, , 21,"Exception on open: "
+1, , 8,"Safari"
+1, , 8,"Chrome"
+1, , 7,"close"
+1, , 12,"jws.jsc.ex"
+1, , 22,"Exception on close: "
+1, , 17,".plugins.system"
+1, , 7,"login"
+1, , 26,"jws.jsc.res.notConnected"
+1, , 16,"Not connected."
+1, , 8,"logout"
+1, , 26,"jws.jsc.res.notConnected"
+1, , 16,"Not logged in."
+1, , 11,"broadcast"
+1, , 12,"getClients"
+1, , 25,"jws.jsc.res.notLoggedIn"
+1, , 16,"Not logged in."
+1, , 6,"ping"
+1, , 26,"jws.jsc.res.notConnected"
+1, , 16,"Not connected."
+1, , 20,".plugins.streaming"
+1, , 10,"register"
+1, , 26,"jws.jsc.res.notConnected"
+1, , 16,"Not connected."
+1, , 12,"unregister"
+1, , 26,"jws.jsc.res.notConnected"
+1, , 16,"Not connected."
+1, , 23,"Arguments received: '"
+1, , 5,"' n"
+1, , 50,"'true' or 'false' will be returned to requester."
+1, , 14,".plugins.rpc"
+1, , 21,"jws.RRPCServer.demo"
+1, , 6,"rrpc"
+1, , 5,"rpc"
+1, , 26,"jws.jsc.res.notConnected"
+1, , 16,"Not connected."
+1, , 6,"rrpc"
+1, , 26,"jws.jsc.res.notConnected"
+1, , 16,"Not connected."
+1, , 3,"."
+1, , 3,"("
+1, , 3,")"
+1, , 7,"lRes="
+1, , 6,"send"
+1, , 6,"rrpc"
+1, , 5,"jws"
+1, , 22,"jWebSocketJSONClient"
+1, , 5,"jws"
+1, , 21,"jWebSocketCSVClient"
+1, , 7,"utid="
+1, , 10,",usid= ""
+1, , 4," ""
+1, , 3,","
+1, , 3,"="
+1, , 8,"string"
+1, , 7," \x2C"
+1, , 7," \x22"
+1, , 3,","
+1, , 5,"= ""
+1, , 4," ""
+1, , 3,","
+1, , 3,"="
+1, , 3,","
+1, , 3,"="
+1, , 4," ""
+1, , 4," ""
+1, , 6," x2C"
+1, , 6," x22"
+1, , 5,"jws"
+1, , 21,"jWebSocketXMLClient"
+1, obj2xml, 2,""
+1, obj2xml, 3,"<"
+1, obj2xml, 10," type= ""
+1, obj2xml, 7,"array"
+1, obj2xml, 5," ">"
+1, obj2xml, 6,"item"
+1, obj2xml, 4,"</"
+1, obj2xml, 3,">"
+1, obj2xml, 8,"object"
+1, obj2xml, 3,"<"
+1, obj2xml, 10," type= ""
+1, obj2xml, 8,"object"
+1, obj2xml, 5," ">"
+1, obj2xml, 4,"</"
+1, obj2xml, 3,">"
+1, obj2xml, 3,"<"
+1, obj2xml, 10," type= ""
+1, obj2xml, 5," ">"
+1, obj2xml, 4,"</"
+1, obj2xml, 3,">"
+1, obj2xml, 14,"windows-1252"
+1, obj2xml, 35,"<?xml version= "1.0 " encoding= ""
+1, obj2xml, 6," "?>"
+1, obj2xml, 9,"<token>"
+1, obj2xml, 10,"</token>"
+1, , 10,"text/xml"
+1, node2obj, 6,"type"
+1, node2obj, 8,"string"
+1, node2obj, 8,"number"
+1, node2obj, 9,"boolean"
+1, node2obj, 6,"date"
+1, node2obj, 7,"array"
+1, node2obj, 8,"object"
