@@ -44,6 +44,7 @@ public class StreamingPlugIn extends TokenPlugIn {
 	private TimeStream lTimeStream = null;
 	private MonitorStream lMonitorStream = null;
 	private StressStream lStressStream = null;
+	private AetherStream lAetherStream = null;
 
 	/**
 	 * create a new instance of the streaming plug-in and set the default
@@ -74,6 +75,10 @@ public class StreamingPlugIn extends TokenPlugIn {
 				// create the stream for the monitor stream demo
 				lStressStream = new StressStream("stressStream", lTokenServer);
 				addStream(lStressStream);
+				
+				lAetherStream = new AetherStream("aetherStream", lTokenServer);
+				addStream(lAetherStream);
+				
 				streamsInitialized = true;
 			}
 		}
@@ -98,9 +103,15 @@ public class StreamingPlugIn extends TokenPlugIn {
 				if (lStressStream != null) {
 					lStressStream.stopStream(3000);
 				}
+				
+				if (lAetherStream != null) {
+					lAetherStream.stopStream(3000);
+				}
+				
 				lTimeStream = null;
 				lMonitorStream = null;
 				lStressStream = null;
+				lAetherStream = null;
 				streamsInitialized = false;
 			}
 		}
