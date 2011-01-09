@@ -1,7 +1,7 @@
 package org.aether.x3d;
 
-object SceneGenerator {
-	def getScene() = 
+class SceneGenerator(time:Long) {
+	def getScene(time:Long) =
 		"""
           <Scene>
             <Viewpoint position='0 0 10' />
