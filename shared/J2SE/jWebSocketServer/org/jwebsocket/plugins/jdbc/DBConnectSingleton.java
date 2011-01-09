@@ -13,13 +13,13 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-//	Dieses Programm ist freie Software. Sie kˆnnen es unter den Bedingungen der
+//	Dieses Programm ist freie Software. Sie k—Ünnen es unter den Bedingungen der
 //	GNU Lesser General Public License, wie von der Free Software Foundation
-//	verˆffentlicht, weitergeben und/oder modifizieren, entweder gem‰ﬂ Version 3
-//	der Lizenz oder (nach Ihrer Option) jeder sp‰teren Version.
-//	Die Verˆffentlichung dieses Programms erfolgt in der Hoffnung, daﬂ es Ihnen
+//	ver—Üffentlicht, weitergeben und/oder modifizieren, entweder gem–¥–Ø Version 3
+//	der Lizenz oder (nach Ihrer Option) jeder sp–¥teren Version.
+//	Die Ver—Üffentlichung dieses Programms erfolgt in der Hoffnung, da–Ø es Ihnen
 //	von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die
-//	implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT F‹R EINEN
+//	implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT F–¨R EINEN
 //	BESTIMMTEN ZWECK. Details finden Sie in der GNU Lesser General Public License.
 //	Sie sollten ein Exemplar der GNU Lesser General Public License zusammen mit diesem
 //	Programm erhalten haben. Falls nicht, siehe <http://www.gnu.org/licenses/lgpl.html>.
@@ -107,7 +107,7 @@ public class DBConnectSingleton {
 
 		if (aAutoConnect) {
 			try {
-				// Pr¸fen, ob eine Verbindung besteht, und ggf. neu aufbauen.
+				// Pr—åfen, ob eine Verbindung besteht, und ggf. neu aufbauen.
 				if (lConnection == null || lConnection.isClosed()) {
 					try {
 						if (log.isDebugEnabled()) {
@@ -213,7 +213,7 @@ public class DBConnectSingleton {
 			int lParmIdx = 0;
 			while (lParmIdx < aParms.length) {
 				Object lParm = aParms[lParmIdx];
-				// Die Z‰hlung der Parameter beginnt mit 1, nicht mit 0!
+				// Die Z–¥hlung der Parameter beginnt mit 1, nicht mit 0!
 				lParmIdx++;
 				sql.setObject(lParmIdx, lParm);
 			}
@@ -248,7 +248,7 @@ public class DBConnectSingleton {
 		} catch (Exception ex) {
 			log.error(
 					ex.getClass().getName()
-					+ " beim Schlieﬂen einer Query : " + ex.getMessage());
+					+ " beim Schlie–Øen einer Query : " + ex.getMessage());
 		}
 	}
 }

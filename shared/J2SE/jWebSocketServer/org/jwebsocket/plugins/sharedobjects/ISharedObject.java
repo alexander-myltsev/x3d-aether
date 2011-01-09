@@ -97,7 +97,7 @@ public interface ISharedObject {
 	 * unlocks the object for a certain user. The user name must match the name
 	 * which was passed to lock the object. Releases the lock for the object so
 	 * that other user can access the object again according to their access
-	 * rights.  The jWebSocket library provides the SecurityFactory class to
+	 * rights.Â  The jWebSocket library provides the SecurityFactory class to
 	 * maintain the locks. During the lock phase to update broadcasts should be
 	 * sent to keep the clients consistent. However, if changes have been
 	 * applied during the lock phase the object should broadcast these changes

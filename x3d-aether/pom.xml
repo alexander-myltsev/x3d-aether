@@ -1,4 +1,3 @@
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
@@ -7,14 +6,19 @@
 		<version>0.10</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.jwebsocket</groupId>
-	<artifactId>jWebSocketServer</artifactId>
-	<name>jWebSocketServer</name>
-	<description>jWebSocket Server Project</description>
+	<groupId>org</groupId>
+	<artifactId>x3d-aether</artifactId>
+	<name>x3d-aether</name>
+	<description>x3d-aether project</description>
 	<packaging>jar</packaging>
+	
+	<properties>
+		<scala-version>2.8.1</scala-version>
+		<scala-maven-plugin-version>2.13.1</scala-maven-plugin-version>
+	</properties>
 
 	<build>
-		<sourceDirectory>../shared/J2SE/jWebSocketServer</sourceDirectory>
+		<sourceDirectory>../shared/J2SE/x3d-aether</sourceDirectory>
 <!--
 		<resources>
 			<resource>
@@ -36,14 +40,21 @@
 						</goals>
 						<configuration>
 							<!--<classifier>Embedded</classifier>-->
-							<finalName>jWebSocketServer-${project.version}</finalName>
+							<finalName>x3d-aether-${project.version}</finalName>
 							<outputDirectory>../jWebSocketRTE/jWebSocket-${project.version}/libs</outputDirectory>
+							<archive>
+								<manifest>
+									<mainClass>org.App</mainClass>
+								</manifest>
+							</archive>
+							<!--
 							<archive>
 								<manifest>
 									<addClasspath>true</addClasspath>
 									<mainClass>org.jwebsocket.console.JWebSocketServer</mainClass>
 								</manifest>
 							</archive>
+							-->
 						</configuration>
 					</execution>
 
@@ -54,43 +65,11 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
-					<reportOutputDirectory>${project.build.directory}/../../jWebSocketClient/web/javadocs/jWebSocketServer</reportOutputDirectory>
+					<reportOutputDirectory>${project.build.directory}/../../jWebSocketClient/web/javadocs/x3d-aether</reportOutputDirectory>
 					<stylesheetfile>${project.build.directory}/../../jWebSocketClient/web/javadocs/stylesheet.css</stylesheetfile>
 				</configuration>
 			</plugin>
-
-			<!-- start create assemblies -->
-			<!--
-				description:
-				http://binkley.blogspot.com/2006/12/making-one-jar-with-maven.html
-			-->
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-
-				<executions>
-					<execution>
-						<id>Bundle</id>
-						<configuration>
-							<classifier>Bundle</classifier>
-							<finalName>jWebSocketServer-Bundle</finalName>
-							<outputDirectory>../jWebSocketRTE/jWebSocket-${project.version}/libs</outputDirectory>
-							<archive>
-								<manifest>
-									<mainClass>org.jwebsocket.console.JWebSocketServer</mainClass>
-								</manifest>
-							</archive>
-							<descriptors>
-								<descriptor>src/assembly/one-jar.xml</descriptor>
-							</descriptors>
-						</configuration>
-						<phase>package</phase>
-						<goals>
-							<goal>attached</goal>
-						</goals>
-					</execution>
-				</executions>
-
-			</plugin>
+						
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -101,6 +80,22 @@
 				</configuration>
 			</plugin>
 			
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<version>${scala-maven-plugin-version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
@@ -143,9 +138,9 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org</groupId>
-			<artifactId>x3d-aether</artifactId>
-			<version>${project.version}</version>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.8.1</version>
 		</dependency>
 	</dependencies>
 
@@ -158,5 +153,18 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+		<repository>
+			<id>scala-tools.org</id>
+			<name>Scala-tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</repository>
 	</repositories>
+	
+	<pluginRepositories>
+		<pluginRepository>
+			<id>scala-tools.org</id>
+			<name>Scala-Tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</pluginRepository>
+	</pluginRepositories>
 </project>
