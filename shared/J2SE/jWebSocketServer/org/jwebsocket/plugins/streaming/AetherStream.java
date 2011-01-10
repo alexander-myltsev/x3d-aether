@@ -80,12 +80,12 @@ public class AetherStream extends TokenStream {
 			org.aether.x3d.SceneGenerator sceneGenerator = new org.aether.x3d.SceneGenerator(new Date().getTime()); 
 			while (isRunning) {
 				try {
-					Thread.sleep(100);
+					Thread.sleep(250);
 
 					Token lToken = new Token("event");
 					lToken.put("name", "stream");
 					lToken.put("msg", new Date().getTime());
-					lToken.put("scene", sceneGenerator.getSimpleScene(new Date().getTime()));
+					lToken.put("scene", sceneGenerator.getScene(new Date().getTime()));
 					//lToken.put("pos", pos);
 					//pos += delta;
 					//if (pos > 3.0f || pos < -3.0f) delta = -delta;				
