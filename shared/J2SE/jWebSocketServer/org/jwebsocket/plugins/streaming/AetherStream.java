@@ -9,11 +9,6 @@ import org.jwebsocket.server.TokenServer;
 import org.jwebsocket.token.Token;
 
 public class AetherStream extends TokenStream {
-	/*
-	public static void main(String[] args) {
-		System.out.println("Hello. From AetherStream");
-	}
-	*/
 	
 	private static Logger log = Logging.getLogger(AetherStream.class);
 	private Boolean isRunning = false;
@@ -81,19 +76,19 @@ public class AetherStream extends TokenStream {
 				log.debug("Running Aether stream...");
 			}
 			isRunning = true;
-			float pos = -3.0f, delta = 0.03f;
+			//float pos = -3.0f, delta = 0.03f;
 			org.aether.x3d.SceneGenerator sceneGenerator = new org.aether.x3d.SceneGenerator(new Date().getTime()); 
 			while (isRunning) {
 				try {
-					Thread.sleep(50);
+					Thread.sleep(100);
 
 					Token lToken = new Token("event");
 					lToken.put("name", "stream");
 					lToken.put("msg", new Date().getTime());
-					lToken.put("scene", sceneGenerator.getScene(new Date().getTime()));
-					lToken.put("pos", pos);
-					pos += delta;
-					if (pos > 3.0f || pos < -3.0f) delta = -delta;				
+					lToken.put("scene", sceneGenerator.getSimpleScene(new Date().getTime()));
+					//lToken.put("pos", pos);
+					//pos += delta;
+					//if (pos > 3.0f || pos < -3.0f) delta = -delta;				
 					
 					put(lToken);
 				} catch (InterruptedException ex) {

@@ -27,7 +27,9 @@
 		
 		<link rel="stylesheet" type="text/css" href="../../res/css/jwebsocket.css">
 		<link rel="stylesheet" type="text/css" href="x3dom.css" />
-		
+		<link type="text/css" href="../src_x3d/jQuery/jquery-ui.css" rel="stylesheet" />
+
+		<!--
 		<style>
 			label { width: 100px; float: left; clear: both; }
 			#ctrlContainer { border: 1px solid #000; padding: 20px; float: left; width: 280px; margin-left: 20px; }
@@ -35,9 +37,12 @@
 			#sliderContainer li { height: 25px; }
 			#sliderContainer ul { clear: both; list-style-type: none; margin: 20px 0 10px 0; padding: 0; }
 		</style>
+		-->
 		
 		<script src="../../res/js/jWebSocket.js" type="text/javascript"></script>
 		<script type="text/javascript" src="x3dom.js"></script>
+		<script type="text/javascript" src="../src_x3d/jQuery/jquery.min.js"></script>
+		<script type="text/javascript" src="../src_x3d/jQuery/jquery-ui.min.js"></script>		
 		
 		<script type="text/javascript" language="JavaScript">
 
@@ -59,6 +64,12 @@
 
 
 			var lWSC = null;
+			
+			function onMessageCallback( aEvent, aToken ) {
+				//log( "<font style='color:#888'>jWebSocket message received: '" + aEvent.data + "'</font>" );
+				//$("transform").attr("translation", aToken.pos + ' 0 0');
+				$("scene").empty().append( aToken.scene );				
+			}
 
 			function connect() {
 				var lURL = jws.JWS_SERVER_URL;
@@ -73,10 +84,7 @@
 						},
 
 						// OnMessage callback
-						OnMessage: function( aEvent, aToken ) {
-							log( "<font style='color:#888'>jWebSocket message received: '" + aEvent.data + "'</font>" );
-							$("transform").attr("translation", aToken.pos/2 + ' 0 0');
-						},
+						OnMessage: onMessageCallback,
 
 						// OnClose callback
 						OnClose: function( aEvent ) {
@@ -163,9 +171,21 @@
 -->		
 		<h1>x3d-aether</h1>
 		<p>x3d-aether client through jWebSocket.</p>
-		<div id="sdivChat" class="sdivContainer"
-			 style="position:relative; height:300px; overflow:auto;">
-		</div>
+		
+		<x3d showStat="false" showLog="false" x="0px" y="0px" width="400px" height="400px" altImg="helloX3D-alt.png">
+		  <scene>
+			<viewpoint position='0 0 10' ></viewpoint>
+			<transform id="boxTrafo" DEF="boxTrafo" translation='2.0 0 0'>
+				<shape>
+					<appearance>
+						<material diffuseColor='0.603 0.894 0.909' ></material>	
+					</appearance>
+					<box DEF='box' ></box>
+				</shape>
+			</transform>
+		  </scene>
+		</x3d>
+		
 		<div class="sdivContainer">
 			<table class="stlbDlg" border="0" cellpadding="3" cellspacing="0" width="100%">
 				<tr class="strDlg">
@@ -181,31 +201,19 @@
 			</table>
 		</div>
 		
-		<x3d showStat="false" showLog="false" x="0px" y="0px" width="400px" height="400px" altImg="helloX3D-alt.png">
-		  <scene>
-			<viewpoint position='0 0 10' ></viewpoint>
-				<transform DEF="boxTrafo" translation='-1.5 0 0'>
-					<shape>
-						<appearance>
-							<material diffuseColor='0.603 0.894 0.909' ></material>	
-						</appearance>
-						<box DEF='box' ></box>
-					</shape>
-				</transform>
-		  </scene>
-		</x3d>
+		<div id="sdivChat" class="sdivContainer"
+			 style="position:relative; height:300px; overflow:auto;">
+		</div>
 	
+	<!--
 	<div id="ctrlContainer">
 		<p>viewpoint.position</p>
 		<div id="sliderContainer">
 			<label>Position</label><div id="positionSlider" class="slider"/>
 		</div>
 	</div>
-		
-	<script type="text/javascript" src="../src_x3d/jQuery/jquery.min.js"></script>
-	<link type="text/css" href="../src_x3d/jQuery/jquery-ui.css" rel="stylesheet" />
-	<script type="text/javascript" src="../src_x3d/jQuery/jquery-ui.min.js"></script>
 
+	
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$(".slider").slider({min: 0, max: 20, step: 1, value:10, slide: function(e, ui) {
@@ -214,6 +222,7 @@
 			}});
 		});
 	</script>
+	-->
 
 	</body>
 </html>
